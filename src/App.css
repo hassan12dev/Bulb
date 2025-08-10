@@ -1,42 +1,108 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body{
+  height: 100%;
+  width: 100%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.bg-on {
+  background-color: #fffcb1; /* Light Yellow */
+  transition: background-color 0.5s ease;
+  height: 100vh;
+}
+
+.bg-off {
+  background-color: #ffffff; /* White */
+  transition: background-color 0.5s ease;
+  height: 100vh;
+}
+
+/* 🔤 Animated Header */
+.header {
+  padding-top: 60px;
+  font-size: 25px;
+  font-weight: 800;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  animation: slideFade 1.3s ease forwards;
+}
+
+@keyframes slideFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+section {
+  width: 100%;
+  height: calc(100vh - 100px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
 }
 
-.card {
-  padding: 2em;
+.bulb {
+  transition: all 0.3s ease-in-out;
 }
 
-.read-the-docs {
-  color: #888;
+.glow {
+  filter: drop-shadow(0 0 30px yellow);
+}
+
+.toggle_container {
+  margin-top: 50px;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 40px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 30px;
+  left: 5px;
+  bottom: 5px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: yellow;
+}
+
+input:checked + .slider:before {
+  transform: translateX(40px);
 }

@@ -10,6 +10,7 @@ function App() {
 
   return (
     <div className={`App ${isOn ? "bg-on" : "bg-off"}`}>
+      <div className="panel">
       <header className="header">
         <h1>💡 Bulb is {isOn ? "ON" : "OFF"}</h1>
       </header>
@@ -33,6 +34,7 @@ function App() {
           </label>
         </div>
       </section>
+      </div>
     </div>
   );
 }
